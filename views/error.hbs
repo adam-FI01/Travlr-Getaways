@@ -1,3 +1,21 @@
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<div class="box">
+	<div>
+		<div class="body" style="text-align: center; padding: 40px;">
+			<h1>Oops! Something Went Wrong</h1>
+			<h2 style="color: #cc6600;">Error {{error.status}}</h2>
+			<p style="font-size: 18px; margin: 30px 0;">{{message}}</p>
+			<p>
+				<a href="/" style="background-color: #0066cc; color: white; padding: 12px 30px; text-decoration: none; border-radius: 3px; display: inline-block;">
+					Return to Home
+				</a>
+			</p>
+			{{#if error.stack}}
+			<hr>
+			<p style="text-align: left; color: #999; font-size: 12px; margin-top: 30px;">
+				<strong>Stack Trace:</strong><br>
+				<pre style="background-color: #f5f5f5; padding: 15px; border-radius: 3px; overflow-x: auto;">{{error.stack}}</pre>
+			</p>
+			{{/if}}
+		</div>
+	</div>
+</div>

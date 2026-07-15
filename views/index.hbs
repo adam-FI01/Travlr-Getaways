@@ -1,2 +1,50 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div id="adbox">
+	<img src="/images/sea-sound.jpg" alt="Img">
+	<h1>Enjoy the Summer with Us!</h1>
+	<p>
+		Welcome to Travlr Getaways, your gateway to unforgettable vacation experiences. 
+		Discover amazing destinations, luxury accommodations, and world-class dining options 
+		carefully curated for your perfect getaway.
+	</p>
+</div>
+<div id="main">
+	<div class="box">
+		<div>
+			<div>
+				<h3>Latest Blog</h3>
+				<ul>
+					{{#each blogs}}
+					<li>
+						<h4><a href="{{this.link}}">{{this.title}}</a></h4>
+						<span>{{this.date}}</span>
+						<p>
+							{{this.excerpt}}
+						</p>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="testimonials" class="box">
+		<div>
+			<div>
+				<h3>Testimonials</h3>
+				<p>
+					"{{testimonials.text}}" <span>- <a href="/">{{testimonials.author}}</a></span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="sidebar">
+	<div class="section">
+		<a href="/rooms"><img src="/images/rooms.png" alt="Img"></a>
+	</div>
+	<div class="section">
+		<a href="/travel"><img src="/images/dive-site.png" alt="Img"></a>
+	</div>
+	<div class="section">
+		<a href="/meals"><img src="/images/food.png" alt="Img"></a>
+	</div>
+</div>

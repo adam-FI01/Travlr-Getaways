@@ -1,0 +1,38 @@
+<div class="box">
+	<div>
+		<div class="body">
+			<h1>Latest News</h1>
+			<h2>Stay Updated with Travlr Getaways</h2>
+			<p>
+				Check out our latest travel news, promotions, and destination highlights. 
+				Be the first to know about special offers and new destinations!
+			</p>
+
+			<div class="news-list">
+				{{#each newsItems}}
+				<div style="margin: 30px 0; padding: 20px; border-bottom: 1px solid #ddd;">
+					<h3>{{this.title}}</h3>
+					<p style="font-size: 12px; color: #999; font-weight: bold;">📅 {{this.date}}</p>
+					<p>{{this.content}}</p>
+					<a href="#" style="color: #0066cc; text-decoration: none; font-weight: bold;">Read more →</a>
+				</div>
+				{{/each}}
+			</div>
+
+			<h2>Subscribe to Our Newsletter</h2>
+			<p>
+				Get travel tips, destination guides, and exclusive deals delivered to your inbox.
+			</p>
+			<form style="margin: 20px 0;">
+				<input type="email" placeholder="Enter your email" style="padding: 10px; width: 60%; border: 1px solid #ccc; border-radius: 3px;">
+				<button type="submit" style="padding: 10px 20px; background-color: #0066cc; color: white; border: none; border-radius: 3px; cursor: pointer; margin-left: 10px;">Subscribe</button>
+			</form>
+
+			<h2>Follow Us on Social Media</h2>
+			<p>
+				Connect with us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, 
+				and <a href="#">Instagram</a> for daily inspiration and travel tips!
+			</p>
+		</div>
+	</div>
+</div>
