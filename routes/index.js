@@ -1,10 +1,13 @@
 var express = require('express');
-var path = require('path');
 var router = express.Router();
+var travelController = require('../controllers/travelController');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+router.get('/', travelController.index);
+router.get('/about', travelController.about);
+router.get('/travel', travelController.travel);
+router.get('/rooms', travelController.rooms);
+router.get('/meals', travelController.meals);
+router.get('/news', travelController.news);
+router.get('/contact', travelController.contact);
 
 module.exports = router;

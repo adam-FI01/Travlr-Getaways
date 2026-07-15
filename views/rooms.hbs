@@ -1,0 +1,39 @@
+<div class="box">
+	<div>
+		<div class="body">
+			<h1>Our Room Options</h1>
+			<h2>Choose Your Perfect Accommodation</h2>
+			<p>
+				We offer a variety of room types to suit every traveler's needs and budget. 
+				All our rooms feature premium amenities and stunning views.
+			</p>
+
+			<div class="room-types">
+				{{#each roomTypes}}
+				<div style="margin: 25px 0; padding: 20px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9;">
+					<h3>{{this.name}}</h3>
+					<p style="font-size: 18px; color: #0066cc; font-weight: bold;">{{this.price}}</p>
+					<p>{{this.description}}</p>
+					<p style="margin-top: 15px;">
+						<a href="/contact" style="background-color: #0066cc; color: white; padding: 10px 20px; text-decoration: none; border-radius: 3px;">Book Now</a>
+					</p>
+				</div>
+				{{/each}}
+			</div>
+
+			<h2>Room Amenities</h2>
+			<ul>
+				<li>Free high-speed WiFi</li>
+				<li>Air conditioning and heating</li>
+				<li>Flat-screen TV with streaming</li>
+				<li>Marble bathroom with premium toiletries</li>
+				<li>24-hour room service</li>
+				<li>Safe and mini-bar</li>
+			</ul>
+
+			<p style="margin-top: 30px;">
+				For more information, please <a href="/contact">contact us</a> or call 1-800-TRAVLR-1
+			</p>
+		</div>
+	</div>
+</div>

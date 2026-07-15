@@ -1,0 +1,46 @@
+<div class="box">
+	<div>
+		<div class="body">
+			<h1>Dining Experience</h1>
+			<h2>Culinary Excellence Awaits</h2>
+			<p>
+				Experience world-class dining at Travlr Getaways. Our award-winning chefs prepare 
+				delicious meals featuring local and international cuisine.
+			</p>
+
+			<div class="meal-info">
+				{{#each meals}}
+				<div style="margin: 25px 0; padding: 20px; border-left: 4px solid #cc6600;">
+					<h3>{{this.name}}</h3>
+					<p style="font-weight: bold; color: #666;">⏰ {{this.time}}</p>
+					<p>{{this.description}}</p>
+				</div>
+				{{/each}}
+			</div>
+
+			<h2>Special Dietary Options</h2>
+			<p>
+				We accommodate all dietary preferences including vegetarian, vegan, gluten-free, 
+				and allergy-friendly meals. Please notify us of any dietary requirements when booking.
+			</p>
+
+			<h2>Room Service</h2>
+			<p>
+				Enjoy 24-hour room service with an extensive menu available in your room. 
+				Breakfast in bed, midnight snacks, or full meals delivered to your door.
+			</p>
+
+			<h2>Chef's Recommendations</h2>
+			<ul>
+				<li>Grilled seafood with tropical fruits</li>
+				<li>Authentic local specialty dishes</li>
+				<li>Mediterranean-inspired cuisine</li>
+				<li>Farm-to-table organic options</li>
+			</ul>
+
+			<p style="margin-top: 30px;">
+				Make your dining preferences known when you <a href="/contact">book your stay</a>.
+			</p>
+		</div>
+	</div>
+</div>

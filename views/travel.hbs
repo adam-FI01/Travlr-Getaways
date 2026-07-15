@@ -1,0 +1,35 @@
+<div class="box">
+	<div>
+		<div class="body">
+			<h1>Travel Destinations</h1>
+			<h2>Explore Our Amazing Destinations</h2>
+			<p>
+				Discover the world with Travlr Getaways. We offer curated travel packages to 
+				the most beautiful and exciting destinations around the globe.
+			</p>
+			
+			<div class="destinations">
+				{{#each destinations}}
+				<div style="margin: 20px 0; padding: 15px; border-left: 3px solid #0066cc;">
+					<h3>{{this.name}}</h3>
+					<p>{{this.description}}</p>
+				</div>
+				{{/each}}
+			</div>
+
+			<h2>Why Choose Our Packages?</h2>
+			<ul>
+				<li>Expert itinerary planning</li>
+				<li>Best price guarantees</li>
+				<li>24/7 customer support</li>
+				<li>Flexible booking options</li>
+				<li>Customizable experiences</li>
+			</ul>
+
+			<p style="margin-top: 30px;">
+				Ready to travel? <a href="/contact">Book your adventure today</a> and create 
+				memories that will last a lifetime!
+			</p>
+		</div>
+	</div>
+</div>
