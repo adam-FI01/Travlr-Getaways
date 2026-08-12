@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
 
@@ -14,6 +14,7 @@ import { Trip } from '../models/trip';
 })
 export class EditTrip implements OnInit {
   editForm!: FormGroup;
+  trip!: Trip;
   submitted = false;
   tripCode!: string;
   message: string = '';
@@ -21,14 +22,25 @@ export class EditTrip implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
-    private tripDataService: TripDataService
+    private tripDataService: TripDataService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
+    // Retrieve stashed trip ID
+    let tripCode = localStorage.getItem('tripCode');
+    if (!tripCode) {
+      alert("Something wrong, couldn't find where I stashed tripCode!");
+      this.router.navigate(['']);
+      return;
+    }
+
+    console.log('EditTrip::ngOnInit');
+    console.log('tripcode:' + tripCode);
+
     this.editForm = this.formBuilder.group({
       id: [],
-      code: ['', Validators.required],
+      code: [tripCode, Validators.required],
       name: ['', Validators.required],
       length: ['', Validators.required],
       start: ['', Validators.required],
@@ -38,26 +50,20 @@ export class EditTrip implements OnInit {
       description: ['', Validators.required]
     });
 
-    const tripCode = this.route.snapshot.paramMap.get('code');
-    if (!tripCode) {
-      alert("Something wrong, couldn't find the trip code to edit!");
-      this.router.navigate(['']);
-      return;
-    }
-
     this.tripCode = tripCode;
-    console.log('EditTrip component::tripCode: ' + tripCode);
 
     this.tripDataService.getTrip(tripCode)
       .subscribe({
         next: (value: any) => {
-          if (value && value.length > 0) {
-            this.editForm.patchValue(value[0]);
-            this.message = 'Trip: ' + tripCode + ' retrieved';
-          } else {
+          this.trip = value;
+          this.editForm.patchValue(value[0]);
+          if (!value) {
             this.message = 'No Trip Retrieved!';
+          } else {
+            this.message = 'Trip: ' + tripCode + ' retrieved';
           }
           console.log(this.message);
+          this.cdr.markForCheck();
         },
         error: (error: any) => {
           console.log('Error: ' + error);
