@@ -2,9 +2,6 @@ const mongoose = require('mongoose');
 const Trip = require('../models/travlr'); // Register model
 const Model = mongoose.model('trips');
 
-// GET: /trips - lists all the trips
-// Regardless of outcome, response must include HTML status code
-// and JSON message to the requesting client
 const tripsList = async(req, res) => {
     const q = await Model
         .find({}) // No filter, return all records
@@ -26,9 +23,6 @@ const tripsList = async(req, res) => {
     }
 };
 
-// GET: /trips/:tripCode - lists a single trip
-// Regardless of outcome, response must include HTML status code
-// and JSON message to the requesting client
 const tripsFindByCode = async(req, res) => {
     const q = await Model
         .find({ 'code' : req.params.tripCode }) // Return single record
@@ -50,9 +44,6 @@ const tripsFindByCode = async(req, res) => {
     }
 };
 
-// POST: /trips - Adds a new Trip
-// Regardless of outcome, response must include HTML status code
-// and JSON message to the requesting client
 const tripsAddTrip = async(req, res) => {
     const newTrip = new Trip({
         code: req.body.code,
@@ -79,10 +70,6 @@ const tripsAddTrip = async(req, res) => {
     }
 };
 
-// PUT: /trips/:tripCode - Adds a new Trip
-// Regardless of outcome, response must include HTML status
-// code
-// and JSON message to the requesting client
 const tripsUpdateTrip = async (req, res) => {
     // Uncomment for debugging
     // console.log(req.params);
