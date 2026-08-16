@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,8 +22,7 @@ export class EditTripComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private tripDataService: TripDataService,
-    private cdr: ChangeDetectorRef
+    private tripDataService: TripDataService
   ) {}
 
   ngOnInit(): void {
@@ -63,7 +62,6 @@ export class EditTripComponent implements OnInit {
             this.message = 'Trip: ' + tripCode + ' retrieved';
           }
           console.log(this.message);
-          this.cdr.markForCheck();
         },
         error: (error: any) => {
           console.log('Error: ' + error);

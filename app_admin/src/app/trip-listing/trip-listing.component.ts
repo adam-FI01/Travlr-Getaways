@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { TripDataService } from '../services/trip-data.service';
@@ -23,7 +23,6 @@ export class TripListingComponent implements OnInit {
   constructor(
     private tripDataService: TripDataService,
     private router: Router,
-    private cdr: ChangeDetectorRef,
     private authenticationService: AuthenticationService
   ) {
     console.log('trip-listing constructor');
@@ -42,7 +41,6 @@ export class TripListingComponent implements OnInit {
             this.message = 'There were no trips retireved from the database';
           }
           console.log(this.message);
-          this.cdr.markForCheck();
         },
         error: (error: any) => {
           console.log('Error: ' + error);
