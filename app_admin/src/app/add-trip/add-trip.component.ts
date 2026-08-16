@@ -8,10 +8,10 @@ import { TripDataService } from '../services/trip-data.service';
   selector: 'app-add-trip',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './add-trip.html',
-  styleUrl: './add-trip.css',
+  templateUrl: './add-trip.component.html',
+  styleUrl: './add-trip.component.css',
 })
-export class AddTrip implements OnInit {
+export class AddTripComponent implements OnInit {
   addForm!: FormGroup;
   submitted = false;
 

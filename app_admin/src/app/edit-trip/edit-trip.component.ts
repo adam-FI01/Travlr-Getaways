@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,10 +9,10 @@ import { Trip } from '../models/trip';
   selector: 'app-edit-trip',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './edit-trip.html',
-  styleUrl: './edit-trip.css',
+  templateUrl: './edit-trip.component.html',
+  styleUrl: './edit-trip.component.css',
 })
-export class EditTrip implements OnInit {
+export class EditTripComponent implements OnInit {
   editForm!: FormGroup;
   trip!: Trip;
   submitted = false;
@@ -22,8 +22,7 @@ export class EditTrip implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private tripDataService: TripDataService,
-    private cdr: ChangeDetectorRef
+    private tripDataService: TripDataService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +34,7 @@ export class EditTrip implements OnInit {
       return;
     }
 
-    console.log('EditTrip::ngOnInit');
+    console.log('EditTripComponent::ngOnInit');
     console.log('tripcode:' + tripCode);
 
     this.editForm = this.formBuilder.group({
@@ -63,7 +62,6 @@ export class EditTrip implements OnInit {
             this.message = 'Trip: ' + tripCode + ' retrieved';
           }
           console.log(this.message);
-          this.cdr.markForCheck();
         },
         error: (error: any) => {
           console.log('Error: ' + error);
