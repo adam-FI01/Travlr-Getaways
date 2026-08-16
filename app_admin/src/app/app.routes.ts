@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { TripListing } from './trip-listing/trip-listing';
-import { AddTrip } from './add-trip/add-trip';
-import { EditTrip } from './edit-trip/edit-trip';
-import { Login } from './login/login';
+import { TripListingComponent } from './trip-listing/trip-listing.component';
+import { AddTripComponent } from './add-trip/add-trip.component';
+import { EditTripComponent } from './edit-trip/edit-trip.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-  { path: '', component: TripListing },
-  { path: 'add-trip', component: AddTrip },
-  { path: 'edit-trip', component: EditTrip },
-  { path: 'login', component: Login },
+  { path: '', component: TripListingComponent },
+  { path: 'add-trip', component: AddTripComponent },
+  { path: 'edit-trip', component: EditTripComponent },
+  { path: 'login', component: LoginComponent },
 ];

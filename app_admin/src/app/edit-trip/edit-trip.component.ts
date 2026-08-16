@@ -9,10 +9,10 @@ import { Trip } from '../models/trip';
   selector: 'app-edit-trip',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './edit-trip.html',
-  styleUrl: './edit-trip.css',
+  templateUrl: './edit-trip.component.html',
+  styleUrl: './edit-trip.component.css',
 })
-export class EditTrip implements OnInit {
+export class EditTripComponent implements OnInit {
   editForm!: FormGroup;
   trip!: Trip;
   submitted = false;
@@ -35,7 +35,7 @@ export class EditTrip implements OnInit {
       return;
     }
 
-    console.log('EditTrip::ngOnInit');
+    console.log('EditTripComponent::ngOnInit');
     console.log('tripcode:' + tripCode);
 
     this.editForm = this.formBuilder.group({

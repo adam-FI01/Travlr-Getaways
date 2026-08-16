@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Authentication } from '../services/authentication';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-trip-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './trip-card.html',
-  styleUrl: './trip-card.css',
+  templateUrl: './trip-card.component.html',
+  styleUrl: './trip-card.component.css',
 })
-export class TripCard implements OnInit {
+export class TripCardComponent implements OnInit {
 
   @Input('trip') trip: any;
 
   constructor(
     private router: Router,
-    private authenticationService: Authentication
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit(): void {}

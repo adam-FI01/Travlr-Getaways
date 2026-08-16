@@ -7,7 +7,7 @@ import { TripDataService } from './trip-data.service';
 @Injectable({
   providedIn: 'root'
 })
-export class Authentication {
+export class AuthenticationService {
 
   // Variable to handle Authentication Responses
   authResp: AuthResponse = new AuthResponse();
